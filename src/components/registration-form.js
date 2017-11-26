@@ -4,6 +4,7 @@ import {registerUser} from '../actions/users';
 import {login} from '../actions/auth';
 import Input from './input';
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
+import './registration-form.css';
 
 export class RegistrationForm extends React.Component {
     onSubmit(values) {
@@ -21,27 +22,25 @@ export class RegistrationForm extends React.Component {
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
-                <label htmlFor="firstName">First name</label>
-                <Field component={Input} type="text" name="firstName" />
-                <label htmlFor="lastName">Last name</label>
-                <Field component={Input} type="text" name="lastName" />
-                <label htmlFor="username">Username</label>
+                <Field component={Input} type="text" name="firstName" placeholder="First Name" />
+                <Field component={Input} type="text" name="lastName" placeholder="Last Name" />
                 <Field
                     component={Input}
+                    placeholder="Username"
                     type="text"
                     name="username"
                     validate={[required, nonEmpty, isTrimmed]}
                 />
-                <label htmlFor="password">Password</label>
                 <Field
                     component={Input}
+                    placeholder="Password"
                     type="password"
                     name="password"
                     validate={[required, length({min: 10, max: 72}), isTrimmed]}
                 />
-                <label htmlFor="passwordConfirm">Confirm password</label>
                 <Field
                     component={Input}
+                    placeholder="Verify Password"
                     type="password"
                     name="passwordConfirm"
                     validate={[required, nonEmpty, matches('password')]}
