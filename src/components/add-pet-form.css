@@ -1,0 +1,7 @@
+input[type=radio] {
+    display: inline-block;
+
+}
+.add-pet-form {
+    background: lightgray;
+}
