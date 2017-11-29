@@ -1,7 +1,8 @@
-input[type=radio] {
-    display: inline-block;
 
+.form-section {
+    margin: 20px;
 }
-.add-pet-form {
+
+/* .add-pet-form {
     background: lightgray;
-}
+} */
