@@ -3,6 +3,10 @@ Form {
     text-align: center;
 }
 
+.login-form {
+    display: block;
+}
+
 input {
     text-align: center;
     border: none;

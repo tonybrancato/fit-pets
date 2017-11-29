@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 
 import LoginForm from './login-form';
-import AddPetForm from './add-pet-form';
 
 export function LandingPage(props) {
     // If we are logged in redirect straight to the user's dashboard
@@ -13,10 +12,9 @@ export function LandingPage(props) {
 
     return (
         <div className="home">
-            <h2>Fit & Furry</h2>
+            {/* <h2>Pet Fit</h2> */}
             <h3>Track, Update, and View Information About Your Pets</h3>
             <LoginForm />
-            <AddPetForm />
             <Link to="/register">Register</Link>
         </div>
     );

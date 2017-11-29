@@ -20,7 +20,7 @@ export class HeaderBar extends React.Component {
         }
         return (
             <div className="header-bar">
-                <h1>Fit & Furry</h1>
+                <h1>Pet Fit</h1>
                 {logOutButton}
             </div>
         );
