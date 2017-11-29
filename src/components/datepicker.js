@@ -43,6 +43,7 @@ class renderDatePicker extends React.Component {
           {...input}
           placeholder={placeholder}
           dateFormat="MM-DD-YYYY"
+          showYearDropdown
           selected={input.value ? moment(input.value, "MM-DD-YYYY") : null}
           onChange={this.handleChange}
         />
