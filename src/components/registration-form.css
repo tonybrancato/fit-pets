@@ -19,7 +19,7 @@ input:focus {
     border-bottom: 2px solid rgb(113, 223, 113);
 }
 
-button {
+.registration-btn {
     padding: 12px;
     background-color: grey;
     color: white;
