@@ -18,10 +18,10 @@ export class AddPetForm extends React.Component {
 						this.onSubmit(values)
 				)}*/>
 				<div className="form-section">
-					<p>What kind of pet do you want to add?</p>
+					<h3>What kind of pet do you want to add?</h3>
 					<div className="radio-section">
 						
-						<label htmlFor="petType">
+						<label className="radio-label" htmlFor="petType">
 						<Field 
 								className="radio"
 								component={Input} 
@@ -29,7 +29,7 @@ export class AddPetForm extends React.Component {
 								name="petType" 
 								value="0"
 						/>Dog</label>
-						<label htmlFor="petType">
+						<label className="radio-label" htmlFor="petType">
 						<Field 
 								className="radio"
 								component={Input} 
@@ -40,15 +40,15 @@ export class AddPetForm extends React.Component {
 					</div>
 				</div>
 				<div className="form-section">
-					<label>Sex?</label>
+				<h3>Sex?</h3>
 					<div className="radio-section">
-						<label><Field 
+						<label className="radio-label" htmlFor="sex"><Field 
 								component={Input} 
 								type="radio" 
 								name="sex" 
 								value="0"
 						/>Male</label>
-						<label><Field 
+						<label className="radio-label" htmlFor="sex"><Field 
 								component={Input} 
 								type="radio" 
 								name="sex" 
@@ -70,7 +70,7 @@ export class AddPetForm extends React.Component {
 						</div>
 				</div>
 				<div className="form-section">
-					<label htmlFor="birthday">Birthday</label>
+					<label htmlFor="birthday"><h3>Birthday</h3></label>
 					<div>
 						<Field
 								type="text"
@@ -81,7 +81,7 @@ export class AddPetForm extends React.Component {
 					</div>
 				</div>
 				<div className="form-section">
-					<label>Weight</label>
+					<label><h3>Weight</h3></label>
 				<div>
 					<Field
 							type="number"

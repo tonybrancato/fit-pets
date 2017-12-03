@@ -3,6 +3,10 @@
     margin: 20px;
 }
 
+.radio-label {
+    display: block;
+}
+
 /* .add-pet-form {
     background: lightgray;
 } */
