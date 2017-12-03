@@ -1,0 +1,27 @@
+.pet-box {
+    /* margin: 10px; */
+    border: 1px solid black;    
+    background-color: grey; 
+    max-width: 1200px;   
+    padding: 15px;    
+}
+.pet-box:nth-child(even) {
+    background-color: lavender;
+}
+
+.pet-box-expanded {
+    /* height: 200px; */
+    max-width: 900px;
+    margin: 0px auto;
+    /* background: lightgray; */
+    text-align: center;
+}
+
+.test {
+    color: red;
+}
+
+.pet-parent {
+    text-align: center;
+}
+
