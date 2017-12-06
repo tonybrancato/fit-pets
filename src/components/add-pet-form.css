@@ -1,12 +1,16 @@
-
+.add-pet-form-parent {
+    margin-left: 10%;
+}
 .form-section {
     margin: 20px;
 }
 
 .radio-label {
-    display: block;
+    display: inline;
 }
 
-/* .add-pet-form {
-    background: lightgray;
-} */
+.add-pet-form {
+    border: 1px solid grey;
+    float: left;
+    text-align: left;
+}
