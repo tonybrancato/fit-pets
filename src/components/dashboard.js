@@ -4,6 +4,8 @@ import {Link, Redirect} from 'react-router-dom';
 import {fetchProtectedData} from '../actions/protected-data';
 import Pet from './pet';
 
+import  './dashboard.css';
+
 export class Dashboard extends React.Component {
     componentDidMount() {
         if (!this.props.loggedIn) {
@@ -19,8 +21,8 @@ export class Dashboard extends React.Component {
         }
 
         return (
-            <div className="dashboard">
-                <Link to="/addpet">Add a Pet</Link>
+            <div className="dashboard">   
+                           
                 <Pet />
             </div>
         );
