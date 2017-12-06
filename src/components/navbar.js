@@ -25,6 +25,7 @@ export class NavBar extends React.Component {
             <div className="nav">
                 <nav className="nav">
                     <Link className="nav-btn" to="/register"><button>Home</button></Link>
+                    <Link className="nav-btn" to="/addpet">Add a Pet</Link>  
                     {logOutButton}
                 </nav>              
             </div>
