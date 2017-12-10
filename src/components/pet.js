@@ -9,22 +9,22 @@ export class Pet extends React.Component {
   render() {
     return (
       <Accordion 
+      key={this.props.id}
       allowMultiple={true} 
-      easing={'ease'}
       className="pet-parent"> 
         {['Jack', 'Biz', 'Millie'].map(pet => {
           return (
             <AccordionItem 
-            className="pet-box" 
-            bodyClassName="pet-box-expanded" 
-            duration={400}
-            title={`${pet}`} 
-            expanded={pet === 1}>
-              <div>
-                <h2>{`${pet} content`}</h2>
-                <h3>Weight</h3>
-                <h3>Age</h3>
-              </div>
+              className="pet-box" 
+              bodyClassName="pet-box-expanded" 
+              duration={400}
+              title={`${pet}`} 
+              expanded={pet === 1}>
+                <div>
+                  <h2>{`${pet} content`}</h2>
+                  <h3>Weight</h3>
+                  <h3>Age</h3>
+                </div>
             </AccordionItem>
           );
         })}
