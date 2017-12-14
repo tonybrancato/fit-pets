@@ -3,6 +3,9 @@ import {SubmissionError} from 'redux-form';
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
 
+import { push } from 'react-router-redux'
+
+
 export const FETCH_PROTECTED_DATA_SUCCESS = 'FETCH_PROTECTED_DATA_SUCCESS';
 export const fetchProtectedDataSuccess = data => ({
     type: FETCH_PROTECTED_DATA_SUCCESS,
@@ -57,7 +60,8 @@ export const addPet = pet => (dispatch, getState) => {
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
-        .then(({data}) => dispatch(fetchProtectedDataSuccess(data)))        
+        .then(({data}) => dispatch(fetchProtectedDataSuccess(data)))    
+        .then(dispatch(push('/')))    
         .catch(err => {
             const {reason, message, location} = err;
             if (reason === 'ValidationError') {

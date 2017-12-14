@@ -6,6 +6,13 @@ import authReducer from './reducers/auth';
 import protectedDataReducer from './reducers/protected-data';
 import {setAuthToken} from './actions/auth';
 
+import createHistory from 'history/createBrowserHistory'
+import { routerReducer, routerMiddleware } from 'react-router-redux'
+
+
+const history = createHistory()
+const middleware = routerMiddleware(history)
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 
@@ -13,9 +20,10 @@ const store = createStore(
     combineReducers({
         form: formReducer,
         auth: authReducer,
-        protectedData: protectedDataReducer
+        protectedData: protectedDataReducer,
+        router: routerReducer
     }),
-    composeEnhancers(applyMiddleware(thunk))
+    composeEnhancers(applyMiddleware(thunk, middleware))
 );
 
 // Hydrate the authToken from localStorage if it exist
@@ -25,4 +33,4 @@ if (authToken) {
     store.dispatch(setAuthToken(token));
 }
 
-export default store;
+export {store, history};
