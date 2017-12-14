@@ -1,9 +1,7 @@
 import React from 'react';
 import {Field, reduxForm, /*focus*/} from 'redux-form';
 import renderDatePicker from './datepicker';
-// import {fetchProtectedData} from '../actions/protected-data';
 import {addPet} from '../actions/pets';
-// import {login} from '../actions/auth';
 import Input from './input';
 import {required, nonEmpty, isTrimmed, length} from '../validators';
 import './add-pet-form.css';
