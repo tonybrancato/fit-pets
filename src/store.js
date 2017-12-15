@@ -1,36 +1,36 @@
-import {createStore, compose, applyMiddleware, combineReducers} from 'redux';
-import {reducer as formReducer} from 'redux-form';
+import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 import thunk from 'redux-thunk';
-import {loadAuthToken} from './local-storage';
+import { loadAuthToken } from './local-storage';
 import authReducer from './reducers/auth';
 import protectedDataReducer from './reducers/protected-data';
-import {setAuthToken} from './actions/auth';
+import { setAuthToken } from './actions/auth';
 
-import createHistory from 'history/createBrowserHistory'
-import { routerReducer, routerMiddleware } from 'react-router-redux'
+import createHistory from 'history/createBrowserHistory';
+import { routerReducer, routerMiddleware } from 'react-router-redux';
 
 
-const history = createHistory()
-const middleware = routerMiddleware(history)
+const history = createHistory();
+const middleware = routerMiddleware(history);
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 
 const store = createStore(
-    combineReducers({
-        form: formReducer,
-        auth: authReducer,
-        protectedData: protectedDataReducer,
-        router: routerReducer
+  combineReducers({
+    form: formReducer,
+    auth: authReducer,
+    protectedData: protectedDataReducer,
+    router: routerReducer,
     }),
-    composeEnhancers(applyMiddleware(thunk, middleware))
+  composeEnhancers(applyMiddleware(thunk, middleware)),
 );
 
 // Hydrate the authToken from localStorage if it exist
 const authToken = loadAuthToken();
 if (authToken) {
-    const token = authToken;
-    store.dispatch(setAuthToken(token));
+const token = authToken;
+store.dispatch(setAuthToken(token));
 }
 
-export {store, history};
+export { store, history };
