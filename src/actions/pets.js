@@ -1,3 +1,5 @@
+/*eslint-disable*/
+
 import { SubmissionError } from 'redux-form';
 
 import { API_BASE_URL } from '../config';
@@ -5,35 +7,33 @@ import { normalizeResponseErrors } from './utils';
 
 import { push } from 'react-router-redux';
 
-
-export const FETCH_PROTECTED_DATA_SUCCESS = 'FETCH_PROTECTED_DATA_SUCCESS';
-export const fetchProtectedDataSuccess = data => ({
-  type: FETCH_PROTECTED_DATA_SUCCESS,
+export const FETCH_PET_SUCCESS = 'FETCH_PET_SUCCESS';
+export const fetchPetSuccess = data => ({
+  type: FETCH_PET_SUCCESS,
   data,
-  });
+});
 
-export const FETCH_PROTECTED_DATA_ERROR = 'FETCH_PROTECTED_DATA_ERROR';
-export const fetchProtectedDataError = error => ({
-  type: FETCH_PROTECTED_DATA_ERROR,
+export const FETCH_PET_ERROR = 'FETCH_PET_ERROR';
+export const fetchPetError = error => ({
+  type: FETCH_PET_ERROR,
   error,
-  });
+});
 
-export const getPets = pets => (dispatch, getState) => {
+export const getPets = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   const USER = getState().auth.currentUser.id;
   console.log(USER);
-  console.log(pets);
   return fetch(`${API_BASE_URL}/pets/${USER}`, {
     method: 'GET',
     headers: {
-    'content-type': 'application/json',
-    authorization: `Bearer ${authToken}`,
+			'content-type': 'application/json',
+			authorization: `Bearer ${authToken}`,
     },
-    body: JSON.stringify(pets),
-    })
-  .then(res => normalizeResponseErrors(res))
-  .then(res => res.json())
-  .then(({ data }) => dispatch(fetchProtectedDataSuccess(data)))
+	})
+	.then(res => normalizeResponseErrors(res))
+	.then(res => res.json())
+	// .then((res) => console.log(res.pets))
+  .then(({ pets }) => dispatch(fetchPetSuccess(pets)))
   .catch((err) => {
     const { reason, message, location } = err;
     if (reason === 'ValidationError') {
@@ -44,7 +44,7 @@ export const getPets = pets => (dispatch, getState) => {
         }),
     );
     }
-    });
+  });
   };
 
 export const addPet = pet => (dispatch, getState) => {
@@ -60,7 +60,6 @@ export const addPet = pet => (dispatch, getState) => {
     })
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
-  .then(({ data }) => dispatch(fetchProtectedDataSuccess(data)))
   .then(dispatch(push('/')))
   .catch((err) => {
     const { reason, message, location } = err;
