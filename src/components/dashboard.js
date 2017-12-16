@@ -1,3 +1,5 @@
+/*eslint-disable*/
+
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
@@ -7,12 +9,12 @@ import Pet from './pet';
 import './dashboard.css';
 
 export class Dashboard extends React.Component {
-componentDidMount() {
-if (!this.props.loggedIn) {
-return;
-}
-this.props.dispatch(fetchProtectedData());
-}
+// componentDidMount() {
+// if (!this.props.loggedIn) {
+// return;
+// }
+// this.props.dispatch(fetchProtectedData());
+// }
 
 render() {
 // Only visible to logged in users
@@ -37,7 +39,7 @@ const mapStateToProps = (state) => {
   name: currentUser
     ? `${currentUser.firstName} ${currentUser.lastName}`
     : '',
-  protectedData: state.protectedData.data,
+  // protectedData: state.protectedData.data,
   };
   };
 

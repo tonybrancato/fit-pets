@@ -1,9 +1,12 @@
+/*eslint-disable*/
+
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import thunk from 'redux-thunk';
 import { loadAuthToken } from './local-storage';
 import authReducer from './reducers/auth';
-import protectedDataReducer from './reducers/protected-data';
+import petsReducer from './reducers/pets-reducer';
+
 import { setAuthToken } from './actions/auth';
 
 import createHistory from 'history/createBrowserHistory';
@@ -20,7 +23,7 @@ const store = createStore(
   combineReducers({
     form: formReducer,
     auth: authReducer,
-    protectedData: protectedDataReducer,
+    pets: petsReducer,
     router: routerReducer,
     }),
   composeEnhancers(applyMiddleware(thunk, middleware)),

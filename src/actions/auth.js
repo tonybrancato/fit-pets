@@ -1,3 +1,5 @@
+/*eslint-disable*/
+
 import jwtDecode from 'jwt-decode';
 import {SubmissionError} from 'redux-form';
 import {fromByteArray} from 'base64-js';
