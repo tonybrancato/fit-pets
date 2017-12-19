@@ -32,20 +32,19 @@ export const getPets = () => (dispatch, getState) => {
 	})
 	.then(res => normalizeResponseErrors(res))
 	.then(res => res.json())
-	// .then((res) => console.log(res.pets))
   .then(({ pets }) => dispatch(fetchPetSuccess(pets)))
   .catch((err) => {
     const { reason, message, location } = err;
     if (reason === 'ValidationError') {
-    // Convert ValidationErrors into SubmissionErrors for Redux Form
-    return Promise.reject(
-      new SubmissionError({
-        [location]: message,
+      // Convert ValidationErrors into SubmissionErrors for Redux Form
+      return Promise.reject(
+        new SubmissionError({
+          [location]: message,
         }),
-    );
+      );
     }
   });
-  };
+};
 
 export const addPet = pet => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
