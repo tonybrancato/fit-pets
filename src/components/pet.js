@@ -22,7 +22,7 @@ export class Pet extends React.Component {
         allowMultiple={true} 
         className="pet-parent">         
           {(this.props.pets).map((pet, i) => {
-            // console.log(this.props.pets);
+            console.log(this.props.pets);
             return (
               <AccordionItem
                 key={i} 
@@ -32,11 +32,10 @@ export class Pet extends React.Component {
                 title={`${this.props.pets[i].name}`} 
                 expanded={pet === 1}>
                   <div>
-                    <h2>{`${pet} content`}</h2>
-                    <h3>Weight</h3>
-                    <h3>Age</h3>
+                    <h3>{`${this.props.pets[i].name}'s Current Weight: ${this.props.pets[i].lastWeight} pounds`}</h3>
+                    <h3>{`Age: ${this.props.pets[i].age}s`}</h3>
                     <LineExample data={{
-                      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                      labels: this.props.pets[i].weightDate,
                       datasets: [
                         {
                           label: this.props.pets[i].name,
