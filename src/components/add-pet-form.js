@@ -109,11 +109,43 @@ return (
           />
         </div>
       </div>
+      <div className="form-section checkbox-group">
+        <h3>Known Commands</h3>
+        <div>
+          <Field
+            type="checkbox"
+            component={Input}
+            name="sit"
+            value="sit"
+            // validate={[required, nonEmpty, isTrimmed, length({ min: 1, max: 3 })]}
+          />
+          <label className="checkbox-label" htmlFor="sit">Sit</label>
+        </div>
+        <div>
+          <Field
+            type="checkbox"
+            component={Input}
+            name="stay"
+            value="stay"
+            // validate={[required, nonEmpty, isTrimmed, length({ min: 1, max: 3 })]}
+          />
+          <label className="checkbox-label" htmlFor="stay">Stay</label>
+        </div>
+        <div>
+          <Field
+            type="checkbox"
+            component={Input}
+            name="down"
+            value="down"
+            // validate={[required, nonEmpty, isTrimmed, length({ min: 1, max: 3 })]}
+          />
+          <label className="checkbox-label" htmlFor="down">Down</label>
+        </div>
+      </div>
       <button
         type="submit"
         disabled={this.props.pristine || this.props.submitting}
-      >
-						ADD PET
+      >ADD PET
       </button>
     </form>
   </div>
