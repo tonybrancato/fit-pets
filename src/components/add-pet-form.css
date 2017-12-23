@@ -3,6 +3,7 @@
 }
 .form-section {
     margin: 20px;
+    display: block;
 }
 
 .radio-label {
@@ -13,4 +14,16 @@
     border: 1px solid grey;
     float: left;
     text-align: left;
+}
+
+.checkbox-label {
+    width: 120px;
+    float: right;
+    margin: 10px 10px 10px 0px;
+    /* text-align: left; */
+}
+
+input[type=checkbox] {
+    height: 18px;
+    width: 18px
 }

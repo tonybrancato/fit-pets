@@ -11,10 +11,10 @@ import './add-pet-form.css';
 export class AddPetForm extends React.Component {
 onSubmit(values) {
 const {
-  species, sex, name, birthday, weight,
+  species, sex, name, birthday, weight, tricks
   } = values;
 const pet = {
-  species, sex, name, birthday, weight,
+  species, sex, name, birthday, weight, tricks
   };
 return this.props
 .dispatch(addPet(pet))
@@ -109,11 +109,35 @@ return (
           />
         </div>
       </div>
+
+      <div className="form-section">
+       <h3>Tricks</h3>
+        {/* <div> */}
+          <Field
+            type="checkbox"
+            component={Input}
+            name="commands"
+          />
+        {/* </div> */}
+        <label htmlFor="commands" className="checkbox-label">Paw Shake</label>
+      </div>
+
+      <div className="form-section">
+       <h3>Commands</h3>
+        {/* <div> */}
+          <Field
+            type="checkbox"
+            component={Input}
+            name="tricks"
+          />
+        {/* </div> */}
+        <label htmlFor="tricks" className="checkbox-label">Sit</label>
+      </div>
+
       <button
         type="submit"
         disabled={this.props.pristine || this.props.submitting}
-      >
-						ADD PET
+      >ADD PET
       </button>
     </form>
   </div>
